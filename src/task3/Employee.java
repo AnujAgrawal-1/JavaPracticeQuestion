@@ -22,11 +22,7 @@ public class Employee implements Comparable<Employee> {
         this.noOfLeaves = 0;
     }
 
-    public Employee() {
 
-        this.employeeID = 0;
-        this.name=null;
-    }
 
     public short getEmployeeID() {
         return employeeID;

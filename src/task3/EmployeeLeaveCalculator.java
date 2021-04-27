@@ -28,14 +28,14 @@ public class EmployeeLeaveCalculator {
     }
 
     public ArrayList<String> getNumberOfLeaves(List<Employee> employeeList) {
-        List<String> stringList = new ArrayList<>();
+        ArrayList<String> stringList = new ArrayList<>();
         Collections.sort(employeeList);
         for (Employee employee : employeeList) {
             String name = employee.getName();
             byte noOfLeave = employee.getNoOfLeaves();
             stringList.add(String.format("%s-%d",name,noOfLeave));
         }
-        return null;
+        return stringList;
     }
 
 }
