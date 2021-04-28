@@ -22,14 +22,25 @@ public class EmployeeLeaveCalculator {
     }
 
     public List<Employee> removeDuplicateIfExist(List<Employee> employeeList){
-        Set<Employee> removeDuplicate = new TreeSet<>(employeeList);
+        TreeSet<Employee> removeDuplicate = new TreeSet<>(employeeList);
         return removeDuplicate.stream().toList();
 
     }
 
     public ArrayList<String> getNumberOfLeaves(List<Employee> employeeList) {
         ArrayList<String> stringList = new ArrayList<>();
-        Collections.sort(employeeList);
+        employeeList.sort(new Comparator<Employee>() {
+            @Override
+            public int compare(Employee a, Employee b) {
+                int cmp0 = Byte.compare(a.getNoOfLeaves(), b.getNoOfLeaves());
+                if (cmp0 != 0) {
+                    return cmp0;
+                }
+                return a.getName().compareTo(b.getName());
+            }
+        });
+
+
         for (Employee employee : employeeList) {
             String name = employee.getName();
             byte noOfLeave = employee.getNoOfLeaves();

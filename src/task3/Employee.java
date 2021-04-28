@@ -1,8 +1,9 @@
 package task3;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Employee implements Comparable<Employee> {
+public class Employee implements Comparable<Employee>{
     private final short employeeID;
     private final String name;
     private double salary;
@@ -22,7 +23,10 @@ public class Employee implements Comparable<Employee> {
         this.noOfLeaves = 0;
     }
 
-
+    public Employee() {
+        this.employeeID=0;
+        this.name=null;
+    }
 
     public short getEmployeeID() {
         return employeeID;
@@ -47,7 +51,10 @@ public class Employee implements Comparable<Employee> {
         this.noOfLeaves = noOfLeaves;
     }
 
-    @Override
+
+
+
+@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -74,6 +81,5 @@ public class Employee implements Comparable<Employee> {
     @Override
     public int compareTo(Employee o) {
         return Byte.compare(this.noOfLeaves,o.noOfLeaves);
-
     }
 }
