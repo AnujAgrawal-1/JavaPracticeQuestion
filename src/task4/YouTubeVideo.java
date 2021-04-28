@@ -63,12 +63,7 @@ public class YouTubeVideo implements Comparable<YouTubeVideo>
 
     @Override
     public String toString() {
-        return "YoutubeVideo{" +
-                "videoId=" + videoId +
-                ", videoName='" + videoName + '\'' +
-                ", noOfLikes=" + noOfLikes +
-                ", videoDuration=" + videoDuration +
-                '}';
+        return String.format("%s-%d-%d",this.getVideoName(),this.getNoOfLikes(),this.getVideoDuration());
     }
 
     @Override

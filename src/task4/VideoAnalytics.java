@@ -13,6 +13,8 @@ public class VideoAnalytics {
                 return count;
             return -(Integer.compare(o1.getVideoDuration(), o2.getVideoDuration()));
         });
+        System.out.println(videos);
+        System.out.println("==========================================================================================================");
         for (int i = 0; i < 10; i++) {
             youTubeVideoHashSet.add(videos.get(i));
         }
@@ -22,7 +24,7 @@ public class VideoAnalytics {
     public List<String> showDetailsOfShortVideos(Set<YouTubeVideo> videos) {
         List<String> stringList =new ArrayList<>();
         return videos.stream().filter(youTubeVideo -> youTubeVideo.getVideoDuration()<=10)
-                .map((tubeVideo)->String.format("%s - %d -%d",tubeVideo.getVideoName(),
+                .map((tubeVideo)->String.format("%s - %d - %d",tubeVideo.getVideoName(),
                  tubeVideo.getNoOfLikes(),tubeVideo.getVideoDuration()))
                 .collect(Collectors.toList());
     }
